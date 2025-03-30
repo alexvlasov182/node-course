@@ -1,6 +1,6 @@
-const chalk = require("chalk");
-const yargs = require("yargs");
-const notes = require("./notes");
+import chalk from "chalk";
+import yargs from "yargs";
+import { addNote, removeNote } from "./notes.js"; // Update import to use ES module syntax
 
 // Customize yargs version
 yargs.version("1.1.0");
@@ -21,8 +21,8 @@ yargs.command({
       type: "string",
     },
   },
-  handler: function (argv) {
-    notes.addNode(argv.title, argv.body);
+  handler(argv) {
+    addNote(argv.title, argv.body); // Update to use ES module function name
   },
 });
 
@@ -37,8 +37,8 @@ yargs.command({
       type: "string",
     },
   },
-  handler: function (argv) {
-    notes.removeNote(argv.title);
+  handler(argv) {
+    removeNote(argv.title); // Update to use ES module function name
   },
 });
 
@@ -46,7 +46,7 @@ yargs.command({
 yargs.command({
   command: "list",
   describe: "List your notes",
-  handler: function () {
+  handler() {
     console.log("List out all notes");
   },
 });
@@ -55,7 +55,7 @@ yargs.command({
 yargs.command({
   command: "read",
   describe: "Read a note",
-  handler: function () {
+  handler() {
     console.log("Reading a note");
   },
 });
