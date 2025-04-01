@@ -1,5 +1,6 @@
 import fs from "fs";
 import chalk from "chalk";
+import { log } from "console";
 
 const getNotes = () => {
   return "Your notes...";
@@ -37,6 +38,17 @@ const removeNote = (title) => {
   }
 };
 
+const listNotes = () => {
+  const notes = loadNotes()
+
+  console.log(chalk.inverse("Your notes"));
+
+  notes.forEach((note) => {
+    console.log(note.title)
+  })
+  
+}
+
 const saveNotes = (notes) => {
   const dataJSON = JSON.stringify(notes);
   fs.writeFileSync("notes.json", dataJSON);
@@ -52,4 +64,4 @@ const loadNotes = () => {
   }
 };
 
-export { getNotes, addNote, removeNote };
+export { getNotes, addNote, removeNote, listNotes };

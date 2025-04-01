@@ -1,6 +1,6 @@
 import chalk from "chalk";
 import yargs from "yargs";
-import { addNote, removeNote } from "./notes.js"; // Update import to use ES module syntax
+import { addNote, listNotes, removeNote } from "./notes.js"; // Update import to use ES module syntax
 
 // Customize yargs version
 yargs.version("1.1.0");
@@ -47,7 +47,7 @@ yargs.command({
   command: "list",
   describe: "List your notes",
   handler() {
-    console.log("List out all notes");
+    listNotes()
   },
 });
 
