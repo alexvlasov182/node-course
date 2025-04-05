@@ -5,6 +5,8 @@ import { addNote, listNotes, removeNote } from "./notes.js"; // Update import to
 // Customize yargs version
 yargs.version("1.1.0");
 
+console.log(chalk);
+
 // Create add command
 yargs.command({
   command: "add",
