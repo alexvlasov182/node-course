@@ -3,7 +3,7 @@ import chalk from "chalk";
 
 const addNote = (title, body) => {
   const notes = loadNotes();
-  console.log(notes);
+
   const duplicateNote = notes.find((note) => note.title === title);
 
   if (!duplicateNote) {
