@@ -24,7 +24,7 @@ yargs.command({
   },
   handler(argv) {
     addNote(argv.title, argv.body); // Update to use ES module function name
-    console.log(addNote)
+
   },
 });
 
