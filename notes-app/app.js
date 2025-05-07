@@ -40,7 +40,7 @@ yargs.command({
     },
   },
   handler(argv) {
-    removeNote(argv.title); // Update to use ES module function name
+    removeNote(argv.title); 
   },
 });
 
