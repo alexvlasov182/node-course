@@ -40,7 +40,7 @@ yargs.command({
     },
   },
   handler(argv) {
-    removeNote(argv.title); 
+    removeNote(argv.title);
   },
 });
 
