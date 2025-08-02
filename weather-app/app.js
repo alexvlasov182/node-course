@@ -1,13 +1,9 @@
-console.log("Starting Weather App is running...");
+const request = require("postman-request");
 
-setTimeout(() => {
-  console.log("2 second timer completed, fetching weather data...");
-}
-, 2000);
+const url = "https://api.weatherstack.com/current?access_key=2ac5c82a4d477371f3fd8e11c9d534f5&query=48.1351,11.5820"
 
-setTimeout(() => {
-  console.log("0 Second timer completed, fetching weather data...");
-}
-, 0);
 
-console.log("Stopping");
+request({url: url}, (error, response) => {
+  const data = JSON.parse(response.body)
+  console.log(data);
+})
