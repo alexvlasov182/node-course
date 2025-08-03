@@ -6,3 +6,14 @@ const url = "https://api.weatherstack.com/current?access_key=2ac5c82a4d477371f3f
 request({url: url, json: true}, (error, response) => {
   console.log(response.body.current.weather_descriptions[0] + ': It is currently ' + response.body.current.temperature + ' degrees out in Munich. There is a ' + response.body.current.feelslike + ' degrees feels like temperature.');
 }) 
+
+// Gecoding
+// Address -> Latitude/Longitude -> Weather
+const geocodeUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/Munich.json?access_token=pk.eyJ1IjoiZHJ1bWxpZmUxODIiLCJhIjoiY21kdnF6MmJtMHdobjJscXdrbXBhcHcwcCJ9.BlyWpKK3Crmh3Ydl7XXeIw&limit=1";
+
+request({url: geocodeUrl, json: true}, (error, response) => {
+  const latitude = response.body.features[0].geometry.coordinates[1];
+  const longitude = response.body.features[0].geometry.coordinates[0];
+  console.log('Latitude:', latitude);
+  console.log('Longitude:', longitude);
+});
