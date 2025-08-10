@@ -6,6 +6,7 @@ const url = `http://api.weatherstack.com/current?access_key=${weatherstackKey}&q
 const request = http.request(url, (response) => {
 
   let data = '';
+
   response.on('data', (chunk) => {
     data = data + chunk.toString()
     console.log(chunk)
@@ -20,6 +21,5 @@ const request = http.request(url, (response) => {
 request.on('error', (error) => {
   console.log('An error', error);
 });
-
 
 request.end();
