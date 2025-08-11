@@ -13,7 +13,7 @@ const forecast = async (latitude, longitude) => {
       if (error) return reject(new ForecastError('Unable to connect to weather service'))
 
       const body = response.body;
-      console.log(body)
+
       if (!body || body.error) {
         return reject(new ForecastError(body?.error?.info || 'Unable ot get weather data'))
       }
